@@ -4,7 +4,7 @@
 (function(){
     "use strict";
 
-    function GatewaysCtrl($mdDialog, GatewayFactory, GatewayDataStore){
+    function GatewaysCtrl($mdDialog, GatewayFactory){
 
         var self = this;
 
@@ -29,17 +29,17 @@
                                clickOutsideToClose: true
                            })
                      .then(function(newGateway){
-                         GatewayDataStore.addGateway(newGateway);
+                         GatewayFactory.postGateway(newGateway).then(function() {
+                             // successful http post of new gateway
+                         }, function(err) {
+                             // unsuccessful http post of new gateway
+                         });
                      }, function(){
                      });
         }
 
         function groupings(){
-            return [
-                {name: "None"},
-                {name: "Driver"},
-                {name: "Node"}
-            ]
+            return ["None", "Driver", "Node"];
         }
     }
 

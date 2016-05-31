@@ -4,11 +4,12 @@
 (function(){
     "use strict";
 
-    function NavBarCtrl(INVENTORY_STATES, ADMIN_STATES, VCX_STATES, Session){
+    function NavBarCtrl(INVENTORY_STATES, ADMIN_STATES, VCX_STATES, LOGIN_STATE, Session){
 
         var self = this;
 
         self.menus = menus();
+        self.mapState = ADMIN_STATES.MAP;
 
         function menus(){
             return [].concat(inventoryMenuItems(), adminMenuItems(), vcxMenuItems(), userMenuItems());
@@ -101,7 +102,7 @@
                 menuItems: [
                     {
                         title: "Log Out",
-                        state: "root.login",
+                        state: LOGIN_STATE,
                         stateParams: {alertMessage: "You logged out."}
                     }
                 ]

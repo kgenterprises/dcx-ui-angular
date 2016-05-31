@@ -1,10 +1,10 @@
 /**
  * Created by KGraham on 5/26/16.
  */
-(function () {
+(function(){
     "use strict";
 
-    function Routes($stateProvider, ADMIN_STATES, USER_ROLES) {
+    function Routes($stateProvider, ADMIN_STATES, USER_ROLES){
 
         $stateProvider
             .state(ADMIN_STATES.EVENTS, {
@@ -14,8 +14,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN, USER_ROLES.EDITOR]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("System Events");
+                onEnter: function(PageHeaderFactory, EVENTS_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(EVENTS_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(EVENTS_CONSTANTS.PAGE_HEADER,
+                                                          EVENTS_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(ADMIN_STATES.MAP, {
@@ -25,8 +27,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN, USER_ROLES.EDITOR]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("System Overview Map");
+                onEnter: function(PageHeaderFactory, MAP_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(MAP_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(MAP_CONSTANTS.PAGE_HEADER,
+                                                          MAP_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(ADMIN_STATES.DASHBOARD, {
@@ -36,8 +40,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN, USER_ROLES.EDITOR]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("System Overview Dashboard");
+                onEnter: function(PageHeaderFactory, DASHBOARD_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(DASHBOARD_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(DASHBOARD_CONSTANTS.PAGE_HEADER,
+                                                          DASHBOARD_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(ADMIN_STATES.DEVICE_TEST, {
@@ -47,8 +53,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN, USER_ROLES.EDITOR]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Device Integration Test");
+                onEnter: function(PageHeaderFactory, DEVICE_TEST_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(DEVICE_TEST_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(DEVICE_TEST_CONSTANTS.PAGE_HEADER,
+                                                          DEVICE_TEST_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(ADMIN_STATES.SETTINGS, {
@@ -58,8 +66,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN, USER_ROLES.EDITOR]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Settings");
+                onEnter: function(PageHeaderFactory, SETTINGS_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(SETTINGS_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(SETTINGS_CONSTANTS.PAGE_HEADER,
+                                                          SETTINGS_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(ADMIN_STATES.ABOUT, {
@@ -69,12 +79,15 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN, USER_ROLES.EDITOR]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("About");
+                onEnter: function(PageHeaderFactory, ABOUT_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(ABOUT_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(ABOUT_CONSTANTS.PAGE_HEADER,
+                                                          ABOUT_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             });
     }
 
-    angular.module('DCX').config(Routes);
+    angular.module('DCX')
+           .config(Routes);
 
 })();

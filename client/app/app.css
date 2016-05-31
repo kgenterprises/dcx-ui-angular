@@ -1,6 +1,18 @@
+html,
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
 body button, input, select, textarea, table, td, tr, span {
     font-family: "lato", Helvetica, Arial, sans-serif;
     text-transform: none;
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
 }
 
 .dcx-blue {
@@ -15,6 +27,36 @@ body button, input, select, textarea, table, td, tr, span {
     color: white;
 }
 
+.dcx-green-text {
+    color: #22cb06;
+}
+
 .font-bold {
     font-weight: bold;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.header-bar {
+    margin-top: 20px;
+    padding: 0 10px 10px 10px;
+    border-bottom: solid rgba(0,0,0,0.12) 1px;
+}
+
+.header-bar .header-text {
+    margin-top: 15px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.header-bar button {
+    max-height: 35px;
+}
+
+.header-bar md-input-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

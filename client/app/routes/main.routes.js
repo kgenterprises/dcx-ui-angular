@@ -17,7 +17,7 @@
             .state("root.login", {
                 url: "login",
                 views: {
-                    body: {
+                    page: {
                         templateUrl: "app/components/login/login.html",
                         controller: "LoginCtrl as Login"
                     }
@@ -37,6 +37,17 @@
             .state("root.main", {
                 abstract: true,
                 views: {
+                    page: {
+                        templateUrl: "app/components/main/main.html"
+                    }
+                },
+                onEnter: function(Idle) {
+                    Idle.watch();
+                }
+            })
+            .state("root.main.body", {
+                abstract: true,
+                views: {
                     navBar: {
                         templateUrl: "app/components/navBar/navBar.html",
                         controller: "NavBarCtrl as NavBar"
@@ -48,11 +59,9 @@
                     body: {
                         template: "<div ui-view></div>"
                     }
-                },
-                onEnter: function(Idle) {
-                    Idle.watch();
                 }
-            });
+            })
+        ;
     }
 
     angular.module('DCX')

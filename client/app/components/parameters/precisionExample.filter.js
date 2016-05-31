@@ -14,7 +14,7 @@
                     return "";
                 }
             }
-        }
+        };
     }
 
     angular.module("DCX")

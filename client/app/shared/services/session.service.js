@@ -13,7 +13,7 @@
             this.sessionId = null;
             this.username = null;
             this.userRole = null;
-        }
+        };
     }
 
     angular.module("DCX")

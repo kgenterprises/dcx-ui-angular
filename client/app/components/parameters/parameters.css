@@ -12,13 +12,21 @@
 
 #parameters .border-box {
     border: solid black 1px;
-    /*border-radius: 4px;*/
-    max-height: 300px;
+    border-radius: 5px;
     overflow: auto;
+    min-height: 500px;
+    max-height: 500px;
+}
+
+#parameters .available-box {
 }
 
 #parameters md-list.parameter-list {
     padding: 0;
+}
+
+#parameters md-list.parameter-list md-input-container {
+    margin: 18px 0 0 0;
 }
 
 #parameters .parameter-list .ng-hide {
@@ -37,6 +45,7 @@
 #parameters .outbound-parameters {
     margin-left: 15px;
     margin-right: 15px;
+    position: relative;
 }
 
 #parameters .outbound-parameter-row {
@@ -48,8 +57,18 @@
     text-transform: capitalize;
 }
 
+#parameters .no-parameters-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 #parameters .selected-headers-row {
     padding: 8px;
+}
+
+#parameters .outbound-background-grey {
     background-color: #f0f1f2;
 }
 

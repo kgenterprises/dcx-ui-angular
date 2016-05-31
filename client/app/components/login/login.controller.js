@@ -1,7 +1,7 @@
 (function(){
     "use strict";
 
-    function LoginCtrl(Logger, AuthFactory, $state, $stateParams){
+    function LoginCtrl(Logger, AuthFactory, $state, $stateParams, ADMIN_STATES){
         var logger = new Logger("LoginCtrl");
         var self = this;
 
@@ -14,7 +14,7 @@
         function submit(newUser){
             AuthFactory.login(newUser.username, newUser.password)
                        .then(function(){
-                           $state.go("root.main.map");
+                           $state.go(ADMIN_STATES.MAP);
                        }, function(errMessage) {
                            self.alertMessage = errMessage;
                        });

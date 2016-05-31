@@ -1,3 +1,6 @@
+/**
+ * Created by solomonb on 5/29/2016.
+ */
 (function(){
     "use strict";
 
@@ -35,7 +38,6 @@
                     deferred.reject("Password incorrect for the given user.");
                 } else {
                     Session.create(Math.random(), username, "admin");
-                    deferred.resolve();
                 }
             }
             return deferred.promise;

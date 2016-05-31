@@ -4,7 +4,7 @@
 (function(){
     "use strict";
 
-    function ParametersCtrl(DriverDataStore){
+    function ParametersCtrl(DriverDataStore, $filter){
 
         var self = this;
 
@@ -14,6 +14,7 @@
         self.setParameters = setParameters;
         self.toggleParameterSelected = toggleParameterSelected;
         self.toggleExtended = toggleExtended;
+        self.anySelected = anySelected;
 
         function setParameters(){
             if(self.indexSelected) {
@@ -30,6 +31,16 @@
                 self[parameterName] = {};
             }
             self[parameterName].extended = self[parameterName].extended ? false : true;
+        }
+
+        function anySelected(){
+            if(self.parameters) {
+                var filtered = $filter("filter")(self.parameters, {selected: true});
+                if(filtered) {
+                    return filtered.length > 0;
+                }
+            }
+            return false;
         }
 
         function conversions(){

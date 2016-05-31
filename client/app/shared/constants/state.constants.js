@@ -1,29 +1,29 @@
 /**
  * Created by KGraham on 5/26/16.
  */
-(function() {
+(function(){
     "use strict";
-    
+
     angular.module("DCX")
-        .constant("INVENTORY_STATES", {
-            "NODES": "root.main.nodes",
-            "DEVICES": "root.main.devices",
-            "GATEWAYS": "root.main.gateways",
-            "GROUPS": "root.main.groups",
-            "PARAMETERS": "root.main.parameters"
-        })
-        .constant("ADMIN_STATES", {
-            "EVENTS": "root.main.events",
-            "MAP": "root.main.map",
-            "DASHBOARD": "root.main.dashboard",
-            "DEVICE_TEST": "root.main.deviceTest",
-            "SETTINGS": "root.main.settings",
-            "ABOUT": "root.main.about"
-        })
-        .constant("VCX_STATES", {
-            "DEVICES": "root.main.vcxDevices",
-            "PARAMETERS": "root.main.vcxParameters",
-            "TEMPLATES": "root.main.vcxTemplates"
-        });
-    
+           .constant("LOGIN_STATE", "root.login")
+           .constant("INVENTORY_STATES", {
+               "NODES": "root.main.body.nodes",
+               "DEVICES": "root.main.body.devices",
+               "GATEWAYS": "root.main.body.gateways",
+               "GROUPS": "root.main.body.groups",
+               "PARAMETERS": "root.main.body.parameters"
+           })
+           .constant("ADMIN_STATES", {
+               "EVENTS": "root.main.body.events",
+               "MAP": "root.main.body.map",
+               "DASHBOARD": "root.main.body.dashboard",
+               "DEVICE_TEST": "root.main.body.deviceTest",
+               "SETTINGS": "root.main.body.settings",
+               "ABOUT": "root.main.body.about"
+           })
+           .constant("VCX_STATES", {
+               "DEVICES": "root.main.body.vcxDevices",
+               "PARAMETERS": "root.main.body.vcxParameters",
+               "TEMPLATES": "root.main.body.vcxTemplates"
+           });
 })();

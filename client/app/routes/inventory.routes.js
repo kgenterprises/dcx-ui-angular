@@ -1,21 +1,23 @@
 /**
  * Created by KGraham on 5/26/16.
  */
-(function () {
+(function(){
     "use strict";
 
-    function Routes($stateProvider, INVENTORY_STATES, USER_ROLES) {
+    function Routes($stateProvider, INVENTORY_STATES, USER_ROLES){
 
         $stateProvider
             .state(INVENTORY_STATES.NODES, {
                 url: "nodes",
                 templateUrl: "app/components/nodes/nodes.html",
-                controller: "NodesCtrl",
+                controller: "NodesCtrl as Nodes",
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Node List");
+                onEnter: function(PageHeaderFactory, NODES_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(NODES_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(NODES_CONSTANTS.PAGE_HEADER,
+                                                          NODES_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(INVENTORY_STATES.DEVICES, {
@@ -25,8 +27,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Device List");
+                onEnter: function(PageHeaderFactory, DEVICES_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(DEVICES_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(DEVICES_CONSTANTS.PAGE_HEADER,
+                                                          DEVICES_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(INVENTORY_STATES.GATEWAYS, {
@@ -36,8 +40,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Gateway List");
+                onEnter: function(PageHeaderFactory, GATEWAYS_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(GATEWAYS_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(GATEWAYS_CONSTANTS.PAGE_HEADER,
+                                                          GATEWAYS_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(INVENTORY_STATES.GROUPS, {
@@ -47,8 +53,10 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Groups List");
+                onEnter: function(PageHeaderFactory, GROUPS_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(GROUPS_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(GROUPS_CONSTANTS.PAGE_HEADER,
+                                                          GROUPS_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             })
             .state(INVENTORY_STATES.PARAMETERS, {
@@ -58,12 +66,15 @@
                 data: {
                     authorizedRoles: [USER_ROLES.ADMIN]
                 },
-                onEnter: function(PageHeader) {
-                    PageHeader.setPageHeader("Device Parameters");
+                onEnter: function(PageHeaderFactory, PARAMETERS_CONSTANTS){
+                    PageHeaderFactory.setPageHeader(PARAMETERS_CONSTANTS.PAGE_HEADER);
+                    PageHeaderFactory.setPageHelpContents(PARAMETERS_CONSTANTS.PAGE_HEADER,
+                                                          PARAMETERS_CONSTANTS.HELP_TEMPLATE_URL);
                 }
             });
     }
 
-    angular.module('DCX').config(Routes);
+    angular.module('DCX')
+           .config(Routes);
 
 })();
