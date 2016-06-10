@@ -1,5 +1,7 @@
 /**
  * Created by KGraham on 5/26/16.
+ * 
+ * Controller for gateways page.
  */
 (function(){
     "use strict";
@@ -7,7 +9,7 @@
     function GatewaysCtrl($mdDialog, GatewayFactory){
 
         var self = this;
-
+        
         self.groupings = groupings();
         self.selectedGrouping = groupings()[0].name;
         self.connections = [{name: "192.168.101.0"}];
@@ -15,6 +17,10 @@
 
         self.addGateway = addGateway;
 
+        /** pops dialog for configuring new gateway. 
+         * Passes the dialog the current connections and drivers available.
+         * TODO: Will need http logic for getting the real gateways
+         */
         function addGateway(ev){
             $mdDialog.show({
                                controller: "AddGatewayDialogCtrl",

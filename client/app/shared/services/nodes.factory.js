@@ -1,3 +1,6 @@
+/**
+ * TODO: Will be where we do http logic for GET, PUT, POST, DELETE nodes
+ */
 (function(){
     "use strict";
 

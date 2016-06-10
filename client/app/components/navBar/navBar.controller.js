@@ -11,11 +11,15 @@
         self.menus = menus();
         self.mapState = ADMIN_STATES.MAP;
 
+        /** group and set all menus to be repeated in the view */
         function menus(){
             return [].concat(inventoryMenuItems(), adminMenuItems(), vcxMenuItems(), userMenuItems());
 
         }
 
+        /** note stateParams can be passed in as the third property but no items except the logout event in userMenu
+         * requires this functionality. See below for it's example.
+         */
         function inventoryMenuItems(){
             return [].concat({
                 title: "Inventory",
@@ -96,6 +100,7 @@
             });
         }
 
+        /** user menu. Heads to the login state if the user logs out. Passes a message as a stateParam in doing so */
         function userMenuItems(){
             return [].concat({
                 title: Session.username,

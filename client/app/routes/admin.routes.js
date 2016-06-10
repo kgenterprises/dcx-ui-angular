@@ -1,5 +1,10 @@
 /**
  * Created by KGraham on 5/26/16.
+ * 
+ * One of the 3 main routes files. Follows the same pattern as Inventory and VCX routes. Each page gets its url, 
+ * template, controller, list of authorized user types (in the data block), and they all set the page header and the
+ * page header's help content upon entering. Because they all set these page header things, no one has to delete their
+ * remnants upon exit.
  */
 (function(){
     "use strict";

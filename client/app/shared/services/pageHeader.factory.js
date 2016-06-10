@@ -1,5 +1,8 @@
 /**
  * Created by KGraham on 5/26/16.
+ * 
+ * This is where states (pages) can set their custom page header and help contents dialog. PageHeader controller is
+ * watching the pageHeader string at all times for changes.
  */
 (function() {
     "use strict";
