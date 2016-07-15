@@ -1,5 +1,5 @@
 /**
- * Created by KGraham on 5/27/2016.
+ * TODO: Will be where we do http logic for GET, PUT, POST, DELETE gateways
  */
 (function(){
     "use strict";

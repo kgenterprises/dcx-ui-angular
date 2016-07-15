@@ -1,4 +1,13 @@
- (function(){
+/** enhances the Angular $log service by adding a timestamp, printing the line number (when used in Chrome or
+ * Firefox) of the log statement, interpolating strings, and stringifying all objects automatically. Only does
+ * linenumbers in development environment as configured by "ENVIRONMENT" which is set in /config/local.env.json by the
+ * gulp build by gulp-ng-config. It only does it in this evironment because minified code's line numbers would
+ * be nonsense. TODO: add sourcemaps to the build to overcome this
+ * 
+ * Note the interpolation works like log4j: "$log.debug("Hello {}", "Kristina");"
+ * //outputs: Hello Kristina
+ */
+(function(){
      "use strict";
      function LogDecorator($delegate, ENVIRONMENT, ENVIRONMENT_TYPES){
          "ngInject";

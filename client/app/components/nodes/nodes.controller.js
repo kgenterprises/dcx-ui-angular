@@ -14,7 +14,9 @@
         self.toggleEditMode = toggleEditMode;
         self.selectAll = selectAll;
         
-        /* do we get online nodes and offline nodes in separate calls? treating them like we don't here, change later */
+        /* do we get online nodes and offline nodes in separate calls? treating them like we don't here, change later.
+        * filter all nodes by the property "online" and set accordingly
+        * */
        NodesFactory.getNodes().then(function(data) {
            self.online = $filter("filter")(data, {online: true});
            self.offline = $filter("filter")(data, {online: false});
@@ -24,6 +26,7 @@
             self.editMode = !self.editMode;
         }
         
+        /** TODO: Logic does not work yet */
         function selectAll() {
             self.online.forEach(function(node) {
                 node.selected = true;

@@ -6,10 +6,12 @@
 
     function ThemeConfig($mdThemingProvider) {
 
+        // sets the md-primary used by angular material all across the app. See angular material > themes for more info
         var dcxOrangeMap = $mdThemingProvider.extendPalette("blue", {
             "500": "f6a548"
         });
 
+        // TODO: do not have this warn palette configured correctly yet. I don't think warn uses Hue 500
         var dcxBlueMap = $mdThemingProvider.extendPalette("blue", {
             "500": "00aadf"
         });

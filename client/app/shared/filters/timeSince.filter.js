@@ -1,7 +1,6 @@
 /**
  *  copied from ngtimeago library
  */
-
 (function(){
     "use strict";
 

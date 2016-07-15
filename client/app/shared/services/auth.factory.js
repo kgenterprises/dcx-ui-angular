@@ -1,5 +1,6 @@
 /**
- * Created by KGraham on 5/29/2016.
+ * TODO: Will be where we call to the server to do authentication. Currently hardcoded to make "kristina" and "7" admins
+ * and any other user an "editor"
  */
 (function(){
     "use strict";
@@ -44,15 +45,19 @@
 
         }
 
+        /** is the user logged in? */
         function isAuthenticated(){
             return !!Session.username;
         }
 
+        /** takes in the route's authorized roles and, using the current session information, determines whether
+         * they are authorized to view the page calling this function
+         */
         function isAuthorized(authorizedRoles){
             if(!angular.isArray(authorizedRoles)) {
                 authorizedRoles = [authorizedRoles];
             }
-            return this.isAuthenticated() && authorizedRoles.indexOf(Session.userRole) !== -1;
+            return isAuthenticated() && authorizedRoles.indexOf(Session.userRole) !== -1;
         }
 
     }

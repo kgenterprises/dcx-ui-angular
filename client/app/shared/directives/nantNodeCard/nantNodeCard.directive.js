@@ -1,3 +1,8 @@
+/** prints a little rectangular node card with some logic for displaying the node as green if online. Also
+ * calculates the time since the node first came online and displays it dynamically.
+ * See nodes.html for example usage.
+ */
+
 (function(){
     "use strict";
 

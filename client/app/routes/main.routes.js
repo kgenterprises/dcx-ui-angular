@@ -1,5 +1,14 @@
 /**
  * Created by KGraham on 5/26/16.
+ * 
+ * This file handles all the abstract and root level routes. The structure is root is the base and then root either
+ * branches to root.login or root.main.body.<route_name>. Root level provides the page holder div and the logo
+ * footer for all pages. Main level plugs into root's "page" div and sets the skeleton for navbar, pageheader, and page
+ * body, then root.main.body populates these three and provides a pluggable div for each page to flesh out in the
+ * form of a one line in-line template (defined below). All corresponding routes then plug into this div and inherit
+ * the other states
+ * 
+ * See uiRouter 3rd party library online for API information
  */
 (function(){
     "use strict";
@@ -34,8 +43,7 @@
                     angular.element(document).find("body").removeClass("login-background");
                 }
             })
-            .state("root.main", {
-                abstract: true,
+            .state("root.main", {                abstract: true,
                 views: {
                     page: {
                         templateUrl: "app/components/main/main.html"

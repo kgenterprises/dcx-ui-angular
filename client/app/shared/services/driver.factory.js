@@ -1,10 +1,10 @@
 /**
- * Created by KGraham on 5/27/2016.
+ * TODO: Will be where we do http logic for GET, PUT, POST, DELETE drivers
  */
 (function(){
     "use strict";
 
-    function DriverDataStore(API_SERVER, $http, $q){
+    function DriverFactory(API_SERVER, $http, $q){
 
         var testdata = [{
             name: "NantHealth Pseudo v01.00.000",
@@ -49,6 +49,6 @@
     }
 
     angular.module("DCX")
-           .factory("DriverDataStore", DriverDataStore);
+           .factory("DriverFactory", DriverFactory);
 
 })();

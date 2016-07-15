@@ -1,3 +1,4 @@
+/** stores the current session data for the logged in user */
 (function(){
     "use strict";
 
